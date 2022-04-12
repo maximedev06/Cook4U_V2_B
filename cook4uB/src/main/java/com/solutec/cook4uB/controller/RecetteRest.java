@@ -23,22 +23,25 @@ public class RecetteRest {
 	@Autowired
 	private RecetteRepository recetteRepo;
 	
-	
+	//Afficher toutes les recetes
 	@GetMapping(value = "/recette")
 	public Iterable<Recette> findAllRecette(){
 		return recetteRepo.findAll();
 	}
 	
+	//afficher une recette a partir de son id
 	@GetMapping(value = "/recette/{id}")
 	public Optional<Recette> findRecetteById(@PathVariable Long id){
 		return recetteRepo.findById(id);
 	}
 	
+	//Ajouter une recette
 	@PostMapping(value = "/recette")
 	public Recette ajoutRecette(@RequestBody Recette r) {
 		return recetteRepo.save(r);
 	}
 	
+	//Modifier le temps total pour réaliser une recette (temps total = temps de préparation + temps de cuisson)
 	@PatchMapping("/recette/{id}/{temps}")
 	public Optional<Recette> updateRecetteTemps (@PathVariable Long id,@PathVariable int temps){
 		Optional<Recette> e = recetteRepo.findById(id);
@@ -57,6 +60,7 @@ public class RecetteRest {
 		}
 	}
 	
+	//Modifier une recette en fonction de son id
 	@PutMapping(value = "/recette/{id}")
 	public Recette modifierRecette(@PathVariable Long id, @RequestBody Recette rDetail) {
 		Optional<Recette> e = recetteRepo.findById(id);
@@ -68,6 +72,7 @@ public class RecetteRest {
 		}
 	}
 	
+	//Supprimer une recette (ainsi que les étapes liées)
 	@DeleteMapping(value = "/recette/{id}")
 	public boolean deleteRecette(@PathVariable Long id) {
 		Optional<Recette> e = recetteRepo.findById(id);

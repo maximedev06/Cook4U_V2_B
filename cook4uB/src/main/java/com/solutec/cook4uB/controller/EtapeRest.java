@@ -24,21 +24,25 @@ public class EtapeRest {
 	@Autowired
 	private EtapeRepository etapeRepo;
 	
+	//Voir la liste de toute les recettes
 	@GetMapping(value = "/etape")
 	public Iterable<Etape> findAllEtape(){
 		return etapeRepo.findAll();
 	}
 	
+	//Voir une étape en fonction de son id
 	@GetMapping(value = "/etape/{id}")
 	public Optional<Etape> findEtapeById(@PathVariable Long id){
 		return etapeRepo.findById(id);
 	}
 	
+	//Ajouter une nouvelle étape
 	@PostMapping(value = "/etape")
 	public Etape addEtape(@RequestBody Etape e) {
 		return etapeRepo.save(e);
 	}
 	
+	//Modifier une étape via son id
 	@PutMapping(value = "/etape/{id}")
 	public Etape modifierEtape(@PathVariable Long id, @RequestBody Etape e) {
 		Optional<Etape> r = etapeRepo.findById(id);
@@ -50,6 +54,7 @@ public class EtapeRest {
 		}
 	}
 	
+	//Modifier le texte de l'étape en fonction de l'id
 	@PatchMapping(value = "/etape/txt/{id}/{txt}")
 	public Optional<Etape> updateTexteEtape(@PathVariable Long id, @PathVariable String txt){
 		Optional<Etape> e = etapeRepo.findById(id);
@@ -64,6 +69,7 @@ public class EtapeRest {
 		}
 	}
 	
+	//Modifier le numéro de l'étape en fonction de l'id
 	@PatchMapping(value = "/etape/num/{id}/{num}")
 	public Optional<Etape> updateTexteEtape(@PathVariable Long id, @PathVariable int num){
 		Optional<Etape> e = etapeRepo.findById(id);
@@ -78,6 +84,7 @@ public class EtapeRest {
 		}
 	}
 	
+	//Supprimer une étape avec son id
 	@DeleteMapping(value = "/etape/{id}")
 	public boolean deleteEtape(@PathVariable Long id) {
 		Optional<Etape> e = etapeRepo.findById(id);

@@ -14,17 +14,28 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor @AllArgsConstructor @Entity @Data 
 
 public class Etape {
+	
+	/*Classe étape des recettes avec le numéro de l'étape avec l'instruction associées
+	 * 
+	 * A rajouter ? : une moyen d'avoir une photo dans l'étape/lien vers une vidéo ? 
+	 * */
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idEtape;
 	
+	//numéro de l'étape 
 	private int numEtape;
+	
+	//instruction de l'étape
 	private String texteEtape;
 	
 	@ManyToOne
 	@JoinColumn(name="idRecette")
 	private Recette recette;
 
+	
+	//Constructor complet et vide
+	
 	public Etape(Long idEtape, int numEtape, String texteEtape, Recette recette) {
 		super();
 		this.idEtape = idEtape;
@@ -36,6 +47,8 @@ public class Etape {
 	public Etape() {
 		
 	}
+	
+	//Getters & Setters 
 
 	public Long getIdEtape() {
 		return idEtape;
