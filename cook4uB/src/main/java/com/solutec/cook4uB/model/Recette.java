@@ -21,7 +21,7 @@ public class Recette {
 	 * A ajouter : 
 	 *  - tempsTotal - cuisson - préparation - repos ? 
 	 *  - Une photo :
-	 *        - Lien photo dans un premier temps
+	 *        - Lien photo dans un premier temps : fait
 	 *        - Save les photos dans la DdDR
 	 * 
 	 * */

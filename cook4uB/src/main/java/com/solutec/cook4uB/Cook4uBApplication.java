@@ -10,8 +10,10 @@ import com.solutec.cook4uB.enums.NutriScore;
 import com.solutec.cook4uB.enums.TypeRecette;
 import com.solutec.cook4uB.model.Etape;
 import com.solutec.cook4uB.model.Ingredient;
+import com.solutec.cook4uB.model.IngredientQuantite;
 import com.solutec.cook4uB.model.Recette;
 import com.solutec.cook4uB.repository.EtapeRepository;
+import com.solutec.cook4uB.repository.IngredientQuantiteRepository;
 import com.solutec.cook4uB.repository.IngredientRepository;
 import com.solutec.cook4uB.repository.RecetteRepository;
 
@@ -20,7 +22,7 @@ public class Cook4uBApplication implements CommandLineRunner {
 	
 	/* Lors du lancement du projet, dans mySQL Workbench passer :
 	 * - texteEtape, texteRecette en medium txt
-	 * - Modifer les paramètres de la clef étrangère (Etape et IngrédientRecette) afin d'avoir on Delete : Cascade
+	 * - Modifer les paramètres de la clef étrangère (Etape et IngredientQuantite) afin d'avoir on Delete : Cascade
 	 * */
 	
 	@Autowired
@@ -29,6 +31,8 @@ public class Cook4uBApplication implements CommandLineRunner {
 	private EtapeRepository etapeRepo;
 	@Autowired
 	private IngredientRepository ingredientRepo;
+	@Autowired
+	private IngredientQuantiteRepository quantiteRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cook4uBApplication.class, args);
@@ -140,6 +144,56 @@ public class Cook4uBApplication implements CommandLineRunner {
 		ingredientRepo.save(i16);
 		ingredientRepo.save(i17);
 		ingredientRepo.save(i18);	
+		
+		
+		//Ajout des quantités d'un ingredient dans une recette 
+		
+			//recette 1 (pate carbonara) 
+			IngredientQuantite q1 = new IngredientQuantite(null,300,"g",r1,i2);
+			IngredientQuantite q2 = new IngredientQuantite(null,50,"g",r1,i1);
+			IngredientQuantite q3 = new IngredientQuantite(null,140,"g",r1,i3);
+			IngredientQuantite q4 = new IngredientQuantite(null,1,"",r1,i5);
+			IngredientQuantite q5 = new IngredientQuantite(null,400,"ml",r1,i8);
+			IngredientQuantite q6 = new IngredientQuantite(null,1,"",r1,i9);
+			IngredientQuantite q7 = new IngredientQuantite(null,1,"pincée",r1,i6);
+			IngredientQuantite q8 = new IngredientQuantite(null,20,"cl",r1,i10);
+			IngredientQuantite q9 = new IngredientQuantite(null,1,"pincée",r1,i7);		
+
+			quantiteRepo.save(q1);
+			quantiteRepo.save(q2);
+			quantiteRepo.save(q3);
+			quantiteRepo.save(q4);
+			quantiteRepo.save(q5);
+			quantiteRepo.save(q6);
+			quantiteRepo.save(q7);
+			quantiteRepo.save(q8);
+			quantiteRepo.save(q9);
+
+			
+				//recette 3 (hamburger)
+			
+			IngredientQuantite q10 = new IngredientQuantite(null,4,"",r2,i11);
+			IngredientQuantite q11 = new IngredientQuantite(null,4,"",r2,i12);
+			IngredientQuantite q12 = new IngredientQuantite(null,1,"",r2,i13);
+			IngredientQuantite q13 = new IngredientQuantite(null,4,"",r2,i14);
+			IngredientQuantite q14 = new IngredientQuantite(null,8,"",r2,i15);
+			IngredientQuantite q15 = new IngredientQuantite(null,3,"",r2,i16);
+			IngredientQuantite q16 = new IngredientQuantite(null,1,"",r2,i17);
+			IngredientQuantite q17 = new IngredientQuantite(null,1,"",r2,i18);
+						
+			quantiteRepo.save(q10);
+			quantiteRepo.save(q11);
+			quantiteRepo.save(q12);
+			quantiteRepo.save(q13);
+			quantiteRepo.save(q14);
+			quantiteRepo.save(q15);
+			quantiteRepo.save(q16);
+			quantiteRepo.save(q17);
+		
+		
+		
+		
+		
 		
 	}
 }
