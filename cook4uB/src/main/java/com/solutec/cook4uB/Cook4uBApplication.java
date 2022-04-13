@@ -45,10 +45,10 @@ public class Cook4uBApplication implements CommandLineRunner {
 		// Ajout de 10 recettes
 		
 		Recette r1 = new Recette(null,"pate carbonara",8,TypeRecette.Plats,DifficulteRecette.Facile,2,250,"","Une recette traditionnelle avec beaucoup de variante");
-		Recette r2 = new Recette(null,"Hamburger",20,TypeRecette.Plats,DifficulteRecette.Facile,4,400,"","Une recette de hamburger traditionnelle, à varier selon vos goûts et les saisons !");
+		Recette r2 = new Recette(null,"Hamburger",20,TypeRecette.Plats,DifficulteRecette.Moyenne,4,400,"","Une recette de hamburger traditionnelle, à varier selon vos goûts et les saisons !");
 		Recette r3 = new Recette(null,"Moussaka",55,TypeRecette.Plats,DifficulteRecette.Facile,4,300,"","a moussaka, délicieuse et réconfortante...");
 		Recette r4 = new Recette(null,"Salade de concombre",10,TypeRecette.Entrees,DifficulteRecette.Facile,4,250,"","une recette de salade de concombre");
-		Recette r5 = new Recette(null,"Steak de poulet",15,TypeRecette.Plats,DifficulteRecette.Difficile,2,150,"","Une recette d'un steak de poulet");
+		Recette r5 = new Recette(null,"Steak de poulet r",15,TypeRecette.Plats,DifficulteRecette.Difficile,2,150,"","Une recette d'un steak de poulet");
 		Recette r6 = new Recette(null,"Cookies",40,TypeRecette.Desserts, DifficulteRecette.Facile,4,260,"","Une recette de cookie extra pépite de chocolat");
 		Recette r7 = new Recette(null,"Sauce Tomate",30,TypeRecette.Sauces, DifficulteRecette.Facile,4,150,"","Une recette pour faire sa sauce tomate maison très simplement");
 		Recette r8 = new Recette(null,"Houmous d'avocat",15,TypeRecette.Aperitifs,DifficulteRecette.Moyenne,4,120,"","Recette de houmous traditionnelle");
@@ -74,8 +74,8 @@ public class Cook4uBApplication implements CommandLineRunner {
 			//Pour la première recette : pate carbonara
 		
 		Etape e1 = new Etape(null,1,"Épluchez et émincez l’oignon. Mettez les lardons, l’oignon, puis démarrez le mode dorer. Laissez revenir pendant 2 minutes en remuant de temps en temps.",r1);
-		Etape e2 = new Etape(null,2,"Ajoutez les pâtes, l’eau, salez.",r2);
-		Etape e3 = new Etape(null,3,"Dans un récipient, mélangez la crème fraîche avec l’œuf et le parmesan. Ajoutez cette préparation et laissez reposer 2 minutes puis servez immédiatement.",r3);
+		Etape e2 = new Etape(null,2,"Ajoutez les pâtes, l’eau, salez.",r1);
+		Etape e3 = new Etape(null,3,"Dans un récipient, mélangez la crème fraîche avec l’œuf et le parmesan. Ajoutez cette préparation et laissez reposer 2 minutes puis servez immédiatement.",r1);
 		
 		etapeRepo.save(e1);
 		etapeRepo.save(e2);

@@ -36,6 +36,18 @@ public class EtapeRest {
 		return etapeRepo.findById(id);
 	}
 	
+	//Voir toute les étapes d'une recette (via l'idRecette)
+	@GetMapping(value = "/etape/recette/{id}")
+	public Iterable<Etape> findAllEtapeRecette(@PathVariable Long id){
+		return etapeRepo.findAllEtapeRecette(id);
+	}
+	
+	//Voir le nombre d'étape d'une recette (via l'idRecette)
+	@GetMapping(value = "/etape/nombre/{id}")
+	public Iterable<Etape> findNombreEtapeRecette(@PathVariable Long id){
+		return etapeRepo.findNbreEtapeRecette(id);
+	}
+	
 	//Ajouter une nouvelle étape
 	@PostMapping(value = "/etape")
 	public Etape addEtape(@RequestBody Etape e) {
