@@ -27,7 +27,7 @@ public class Recette {
 	 * */
 	
 	
-	@Id@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idRecette;
 	// Nom de la recette de cuisine
 	private String nomRecette;

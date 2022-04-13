@@ -6,10 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.solutec.cook4uB.enums.DifficulteRecette;
+import com.solutec.cook4uB.enums.NutriScore;
 import com.solutec.cook4uB.enums.TypeRecette;
 import com.solutec.cook4uB.model.Etape;
+import com.solutec.cook4uB.model.Ingredient;
 import com.solutec.cook4uB.model.Recette;
 import com.solutec.cook4uB.repository.EtapeRepository;
+import com.solutec.cook4uB.repository.IngredientRepository;
 import com.solutec.cook4uB.repository.RecetteRepository;
 
 @SpringBootApplication
@@ -22,9 +25,10 @@ public class Cook4uBApplication implements CommandLineRunner {
 	
 	@Autowired
 	private RecetteRepository recetteRepo;
-	
 	@Autowired
 	private EtapeRepository etapeRepo;
+	@Autowired
+	private IngredientRepository ingredientRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cook4uBApplication.class, args);
@@ -97,10 +101,45 @@ public class Cook4uBApplication implements CommandLineRunner {
 		etapeRepo.save(e12);
 		etapeRepo.save(e13);
 						
+		//Ajout d'ingredient dans la base de donnée
 		
-		
-		
-		
+		Ingredient i1 = new Ingredient(null,"Parmesan",NutriScore.D,"3",402,30,20,0,0,1.6);
+		Ingredient i2 = new Ingredient(null,"Tagliatelle",NutriScore.A,"1",364,2,0.5,71.2,3.5,0.005);
+		Ingredient i3 = new Ingredient(null,"Lardons fumés",NutriScore.E,"4",250,20,7.8,0.4,0.4,2.3);
+		Ingredient i4 = new Ingredient(null,"Oeuf",NutriScore.A,"1",140,9.83,2.64,0.27,0.27,0.31);
+		Ingredient i5 = new Ingredient(null,"jaune d'oeuf",NutriScore.D,"1",319,28,8.8,1.1,0.3,0.05);
+		Ingredient i6 = new Ingredient(null,"Poivre",NutriScore.NaN,"1",0,0,0,0,0,0);
+		Ingredient i7 = new Ingredient(null,"Sel",NutriScore.NaN,"1",0,0,0,0,0,0);
+		Ingredient i8 = new Ingredient(null,"Eau Chaude",NutriScore.NaN,"1",0,0,0,0,0,0);
+		Ingredient i9 = new Ingredient(null,"Oignon",NutriScore.NaN,"1",43,0,0,0,0,0);
+		Ingredient i10 = new Ingredient(null,"Crème entière fluide",NutriScore.D,"4",292,30,21,3.2,3.2,0.08);		
+		Ingredient i11 = new Ingredient(null,"steak haché",NutriScore.A,"1",129,5,2.3,0,0,0.23);
+		Ingredient i12 = new Ingredient(null,"Cheddar",NutriScore.D,"4",413,35,25,0.5,0.5,1.8);
+		Ingredient i13 = new Ingredient(null,"Tomate entiere",NutriScore.A,"3",23,0.5,0.1,3,3,0.1);
+		Ingredient i14 = new Ingredient(null,"Pain à burger",NutriScore.A,"4",273,4.7,0.5,46,5.4,1);
+		Ingredient i15 = new Ingredient(null,"bacon",NutriScore.D,"4",111,2.6,1,0.8,0.8,2.3);
+		Ingredient i16 = new Ingredient(null,"salade verte",NutriScore.A,"1",27,0.5,0.5,2.6,0.6,0.1);
+		Ingredient i17 = new Ingredient(null,"cornichon",NutriScore.C,"3",13,0.5,0.1,2,0.7,2);
+		Ingredient i18 = new Ingredient(null,"sauce aux choix",NutriScore.NaN,"0",0,0,0,0,0,0);
+	
+		ingredientRepo.save(i1); 
+		ingredientRepo.save(i2); 
+		ingredientRepo.save(i3);
+		ingredientRepo.save(i4);
+		ingredientRepo.save(i5);
+		ingredientRepo.save(i6);
+		ingredientRepo.save(i7);
+		ingredientRepo.save(i8);
+		ingredientRepo.save(i9);
+		ingredientRepo.save(i10);
+		ingredientRepo.save(i11);
+		ingredientRepo.save(i12);
+		ingredientRepo.save(i13);
+		ingredientRepo.save(i14);
+		ingredientRepo.save(i15);
+		ingredientRepo.save(i16);
+		ingredientRepo.save(i17);
+		ingredientRepo.save(i18);	
 		
 	}
 }
