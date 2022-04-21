@@ -190,10 +190,5 @@ public class Cook4uBApplication implements CommandLineRunner {
 			quantiteRepo.save(q16);
 			quantiteRepo.save(q17);
 		
-		
-		
-		
-		
-		
 	}
 }

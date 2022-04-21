@@ -97,12 +97,130 @@ public interface RecetteRepository extends CrudRepository<Recette, Long> {
 		//temps maxi
 		@Query(value = "SELECT r FROM Recette r WHERE r.calorie<=?1")
 		public Iterable<Recette> findByCalMax(float calMax);
+		
+		//temps diff
+			//difficulte facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.temps<=?1 AND r.difficulte =?2")
+			public Iterable<Recette> findRecetteAvance8(int temps, DifficulteRecette diff);
+			//diff moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.temps<=?1 AND r.difficulte =?2 OR r.temps<=?1 AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance81(int temps, DifficulteRecette facile, DifficulteRecette diff);
+			
+		//type cal
+		@Query(value = "SELECT r FROM Recette r WHERE r.type = ?1 AND r.calorie <= ?2")
+		public Iterable<Recette> findRecetteAvance9(TypeRecette type, float cal);
 
+		//type temps
+		@Query(value = "SELECT r FROM Recette r WHERE r.type = ?1 AND r.temps <= ?2")
+		public Iterable<Recette> findRecetteAvance10(TypeRecette type, int temps);
+
+		//type diff
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.type=?1 AND r.difficulte =?2")
+			public Iterable<Recette> findRecetteAvance11(TypeRecette type, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.type=?1 AND r.difficulte =?2 OR r.type=?1 AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance111(TypeRecette type, DifficulteRecette facile,DifficulteRecette diff);
+		
+		//type cal diff
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.type=?1 AND r.calorie <=?2 AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance12(TypeRecette type, float cal, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.type=?1 AND r.calorie <=?2 AND r.difficulte =?3 OR "
+					+ "r.type=?1 AND r.calorie =?2 AND r.difficulte =?4 ")
+			public Iterable<Recette> findRecetteAvance121(TypeRecette type, float cal, DifficulteRecette facile,
+					DifficulteRecette diff);
+
+		//type temps diff
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.type=?1 AND r.temps <=?2 AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance13(TypeRecette type, int temps, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.type=?1 AND r.temps <=?2 AND r.difficulte =?3 OR"
+					+ " r.type=?1 AND r.temps <=?2 AND r.difficulte =?4")
+			public Iterable<Recette> findRecetteAvance131(TypeRecette type, int temps, DifficulteRecette facile,DifficulteRecette diff);
+
+		//nom cal
+		@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.calorie <=?2")
+		public Iterable<Recette> findRecetteAvance14(String nom, float cal);
+
+		//nom temps
+		@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.temps <=?2")
+		public Iterable<Recette> findRecetteAvance15(String nom, int temps);
+
+		//nom diff
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.difficulte =?2")
+			public Iterable<Recette> findRecetteAvance16(String nom, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.difficulte =?2 OR "
+					+ "r.nomRecette LIKE %?1% AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance161(String nom, DifficulteRecette facile, DifficulteRecette diff);
+
+		//nom diff cal
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.calorie <= ?2 AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance17(String nom, float cal, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.calorie <= ?2 AND r.difficulte =?3 OR "
+					+ "r.nomRecette LIKE %?1% AND r.calorie <= ?2 AND r.difficulte =?4")
+			public Iterable<Recette> findRecetteAvance171(String nom, float cal, DifficulteRecette facile,DifficulteRecette diff);
+
+		//nom diff temps
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.temps <= ?2 AND r.difficulte =?3")
+			public Iterable<Recette> findRecetteAvance18(String nom, int temps, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.temps <= ?2 AND r.difficulte =?3 OR "
+					+ "r.nomRecette LIKE %?1% AND r.temps <= ?2 AND r.difficulte =?4")
+			public Iterable<Recette> findRecetteAvance181(String nom, int temps, DifficulteRecette facile,DifficulteRecette diff);
+
+		//nom type
+		@Query(value= "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2")
+		public Iterable<Recette> findRecetteAvance19(String nom, TypeRecette type);
+
+		//nom type cal
+		@Query(value= "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.calorie <= ?3")
+		public Iterable<Recette> findRecetteAvance20(String nom,TypeRecette type,  float cal);
+
+		//nom type temps
+		@Query(value= "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.temps <= ?3")
+		public Iterable<Recette> findRecetteAvance21(String nom,TypeRecette type, int temps);
+
+		//nom type diff
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.difficulte = ?3")
+			public Iterable<Recette> findRecetteAvance22(String nom, TypeRecette type, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.difficulte = ?3 OR "
+					+ "r.nomRecette LIKE %?1% AND r.type=?2 AND r.difficulte = ?4")
+			public Iterable<Recette> findRecetteAvance221(String nom, TypeRecette type, DifficulteRecette facile,
+					DifficulteRecette diff);
+		
+		//nom type diff cal
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.calorie <= ?3 AND r.difficulte = ?4")
+			public Iterable<Recette> findRecetteAvance23(String nom, TypeRecette type, float cal,DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.calorie <= ?3 AND r.difficulte = ?4 OR "
+					+ "r.nomRecette LIKE %?1% AND r.type=?2 AND r.calorie <= ?3 AND r.difficulte = ?5")
+			public Iterable<Recette> findRecetteAvance231(String nom, TypeRecette type, float cal,
+					DifficulteRecette facile, DifficulteRecette diff);
 	
-
+		//nom type diff temps
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.temps <= ?3 AND r.difficulte = ?4")
+			public Iterable<Recette> findRecetteAvance24(String nom, TypeRecette type, int temps,DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.nomRecette LIKE %?1% AND r.type=?2 AND r.temps <= ?3 AND r.difficulte = ?4 OR "
+					+ "r.nomRecette LIKE %?1% AND r.type=?2 AND r.temps <= ?3 AND r.difficulte = ?5")
+			public Iterable<Recette> findRecetteAvance241(String nom, TypeRecette type, int temps,
+					DifficulteRecette facile, DifficulteRecette diff);
 	
-
-						
+	
+	
+	
 	
 	
 	

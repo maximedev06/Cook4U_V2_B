@@ -188,6 +188,173 @@ public class RecetteRest {
 			return recetteRepo.findRecetteAvance7(cal,temps);
 		}
 		
+		//diff temps
+		@GetMapping(value = "recette/avance8/{temps}/{diff}")
+		public Iterable<Recette> findRecetteAvance8(@PathVariable DifficulteRecette diff, @PathVariable int temps){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance8(temps,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance81(temps,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findBytempsTotal(temps);
+			}
+		}
+		
+		//type cal
+		@GetMapping(value = "recette/avance9/{type}/{cal}")
+		public Iterable<Recette> findRecetteAvance9(@PathVariable TypeRecette type, @PathVariable float cal){
+			return recetteRepo.findRecetteAvance9(type,cal);
+		}
+		
+		//type temps
+		@GetMapping(value = "recette/avance10/{type}/{temps}")
+		public Iterable<Recette> findRecetteAvance10(@PathVariable TypeRecette type, @PathVariable int temps){
+			return recetteRepo.findRecetteAvance10(type,temps);
+		}
+		
+		//type diff
+		@GetMapping(value = "recette/avance11/{type}/{diff}")
+		public Iterable<Recette> findRecetteAvance11(@PathVariable TypeRecette type,@PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance11(type,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance111(type,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findByTypeRecette(type);
+			}
+		}
+		
+		// type cal diff
+		@GetMapping(value = "recette/avance12/{type}/{cal}/{diff}")
+		public Iterable<Recette> findRecetteAvance12(@PathVariable TypeRecette type,@PathVariable float cal ,@PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance12(type,cal,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance121(type,cal,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance9(type,cal);
+			}
+		}
+		
+		
+		//type temps diff
+		@GetMapping(value = "recette/avance13/{type}/{temps}/{diff}")
+		public Iterable<Recette> findRecetteAvance13(@PathVariable TypeRecette type,@PathVariable int temps ,@PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance13(type,temps,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance131(type,temps,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance10(type,temps);
+			}
+		}
+		
+		
+		//nom cal
+		@GetMapping(value = "recette/avance14/{nom}/{cal}")
+		public Iterable<Recette> findRecetteAvance14(@PathVariable String nom, @PathVariable float cal){
+			return recetteRepo.findRecetteAvance14(nom,cal);
+		}
+		
+		//nom temps
+		@GetMapping(value = "recette/avance15/{nom}/{temps}")
+		public Iterable<Recette> findRecetteAvance15(@PathVariable String nom, @PathVariable int temps){
+			return recetteRepo.findRecetteAvance15(nom,temps);
+		}
+		
+		//nom diff
+		@GetMapping(value = "recette/avance16/{nom}/{diff}")
+		public Iterable<Recette> findRecetteAvance16(@PathVariable String nom,@PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance16(nom,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance161(nom,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findByNomRecette(nom);
+			}
+		}
+		
+		//nom diff cal
+		@GetMapping(value = "recette/avance17/{nom}/{cal}/{diff}")
+		public Iterable<Recette> findRecetteAvance17(@PathVariable String nom,@PathVariable float cal,@PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance17(nom,cal,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance171(nom,cal,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance14(nom,cal);
+			}
+		}
+		
+		//nom diff temps
+		@GetMapping(value = "recette/avance18/{nom}/{temps}/{diff}")
+		public Iterable<Recette> findRecetteAvance18(@PathVariable String nom,@PathVariable int temps,@PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance18(nom,temps,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance181(nom,temps,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance15(nom,temps);
+			}
+		}
+		
+		//nom type
+		@GetMapping(value = "recette/avance19/{nom}/{type}")
+		public Iterable<Recette> findRecetteAvance19(@PathVariable String nom,@PathVariable TypeRecette type){
+			return recetteRepo.findRecetteAvance19(nom,type);
+		}
+		
+		///nom type cal
+		@GetMapping(value = "recette/avance20/{nom}/{type}/{cal}")
+		public Iterable<Recette> findRecetteAvance20 (@PathVariable TypeRecette type,@PathVariable String nom, @PathVariable float cal){
+	
+			return recetteRepo.findRecetteAvance20(nom,type,cal);
+		} 
+		
+		///nom type temps
+		@GetMapping(value = "recette/avance21/{nom}/{type}/{temps}")
+		public Iterable<Recette> findRecetteAvance21 (@PathVariable TypeRecette type,@PathVariable String nom, @PathVariable int temps){
+			return recetteRepo.findRecetteAvance21(nom,type,temps);
+		} 
+		
+		//nom type diff
+		@GetMapping(value = "recette/avance22/{nom}/{type}/{diff}")
+		public Iterable<Recette> findRecetteAvance22 (@PathVariable TypeRecette type,@PathVariable String nom, @PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance22(nom,type,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance221(nom,type,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance19(nom,type);
+			}	
+		}
+		
+		//nom type diff cal
+		@GetMapping(value = "recette/avance23/{nom}/{type}/{cal}/{diff}")
+		public Iterable<Recette> findRecetteAvance23 (@PathVariable TypeRecette type,@PathVariable String nom,@PathVariable float cal, @PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance23(nom,type,cal,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance231(nom,type,cal,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance20(nom,type,cal);
+			}	
+		}
+		
+		//nom type diff temps
+		@GetMapping(value = "recette/avance24/{nom}/{type}/{temps}/{diff}")
+		public Iterable<Recette> findRecetteAvance24 (@PathVariable TypeRecette type,@PathVariable String nom,@PathVariable int temps, @PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance24(nom,type,temps,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance241(nom,type,temps,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findRecetteAvance21(nom,type,temps);
+			}	
+		}
+		
+		
+		
 		//Recherche en fonction de son nom (contient)
 		@GetMapping(value = "/recette/nom/{nom}")
 		public Iterable<Recette> findRecetteByNom (@PathVariable String nom){
