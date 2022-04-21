@@ -44,16 +44,16 @@ public class Cook4uBApplication implements CommandLineRunner {
 		
 		// Ajout de 10 recettes
 		
-		Recette r1 = new Recette(null,"pate carbonara",8,TypeRecette.Plats,DifficulteRecette.Facile,2,250,"","Une recette traditionnelle avec beaucoup de variante");
-		Recette r2 = new Recette(null,"Hamburger",20,TypeRecette.Plats,DifficulteRecette.Moyenne,4,400,"","Une recette de hamburger traditionnelle, à varier selon vos goûts et les saisons !");
-		Recette r3 = new Recette(null,"Moussaka",55,TypeRecette.Plats,DifficulteRecette.Facile,4,300,"","a moussaka, délicieuse et réconfortante...");
-		Recette r4 = new Recette(null,"Salade de concombre",10,TypeRecette.Entrees,DifficulteRecette.Facile,4,250,"","une recette de salade de concombre");
-		Recette r5 = new Recette(null,"Steak de poulet r",15,TypeRecette.Plats,DifficulteRecette.Difficile,2,150,"","Une recette d'un steak de poulet");
-		Recette r6 = new Recette(null,"Cookies",40,TypeRecette.Desserts, DifficulteRecette.Facile,4,260,"","Une recette de cookie extra pépite de chocolat");
-		Recette r7 = new Recette(null,"Sauce Tomate",30,TypeRecette.Sauces, DifficulteRecette.Facile,4,150,"","Une recette pour faire sa sauce tomate maison très simplement");
-		Recette r8 = new Recette(null,"Houmous d'avocat",15,TypeRecette.Aperitifs,DifficulteRecette.Moyenne,4,120,"","Recette de houmous traditionnelle");
-		Recette r9 = new Recette(null,"Café Mocha",5,TypeRecette.Boissons,DifficulteRecette.Facile,1,80,"","Un petit café Mocha pour vos pauses bien méritées");
-		Recette r10 = new Recette(null,"Flan patissier",25,TypeRecette.Desserts,DifficulteRecette.Facile,4,150,"","Pour réaliser un flan patissier fait maison !");
+		Recette r1 = new Recette(null,"pate carbonara",8,TypeRecette.Plats,DifficulteRecette.Facile,2,250,"assets/img/pate_carbonara.jpg","Une recette traditionnelle avec beaucoup de variante");
+		Recette r2 = new Recette(null,"Hamburger",20,TypeRecette.Plats,DifficulteRecette.Moyenne,4,400,"assets/img/hamburger.png","Une recette de hamburger traditionnelle, à varier selon vos goûts et les saisons !");
+		Recette r3 = new Recette(null,"Moussaka",55,TypeRecette.Plats,DifficulteRecette.Facile,4,300,"assets/img/moussaka.png","a moussaka, délicieuse et réconfortante...");
+		Recette r4 = new Recette(null,"Salade de concombre",10,TypeRecette.Entrees,DifficulteRecette.Facile,4,250,"assets/img/salade.png","une recette de salade de concombre");
+		Recette r5 = new Recette(null,"Steak de poulet r",15,TypeRecette.Plats,DifficulteRecette.Difficile,2,150,"assets/img/steak_poulet.png","Une recette d'un steak de poulet");
+		Recette r6 = new Recette(null,"Cookies",40,TypeRecette.Desserts, DifficulteRecette.Facile,4,260,"assets/img/cookies.png","Une recette de cookie extra pépite de chocolat");
+		Recette r7 = new Recette(null,"Sauce Tomate",30,TypeRecette.Sauces, DifficulteRecette.Facile,4,150,"assets/img/sauce_tomate.png","Une recette pour faire sa sauce tomate maison très simplement");
+		Recette r8 = new Recette(null,"Houmous d'avocat",15,TypeRecette.Aperitifs,DifficulteRecette.Moyenne,4,120,"assets/img/houmous.png","Recette de houmous traditionnelle");
+		Recette r9 = new Recette(null,"Café Mocha",5,TypeRecette.Boissons,DifficulteRecette.Facile,1,80,"assets/img/cafe_moka.png","Un petit café Mocha pour vos pauses bien méritées");
+		Recette r10 = new Recette(null,"Flan patissier",25,TypeRecette.Desserts,DifficulteRecette.Facile,4,150,"assets/img/flan_vanille.png","Pour réaliser un flan patissier fait maison !");
 		
 		
 		recetteRepo.save(r1);
