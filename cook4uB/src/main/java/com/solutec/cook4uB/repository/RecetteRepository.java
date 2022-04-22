@@ -217,7 +217,17 @@ public interface RecetteRepository extends CrudRepository<Recette, Long> {
 					+ "r.nomRecette LIKE %?1% AND r.type=?2 AND r.temps <= ?3 AND r.difficulte = ?5")
 			public Iterable<Recette> findRecetteAvance241(String nom, TypeRecette type, int temps,
 					DifficulteRecette facile, DifficulteRecette diff);
-	
+
+		//cal diff
+			//facile
+			@Query(value = "SELECT r FROM Recette r WHERE r.calorie <= ?1 AND r.difficulte = ?2")
+			public Iterable<Recette> findRecetteAvance25(float cal, DifficulteRecette diff);
+			//moyenne
+			@Query(value = "SELECT r FROM Recette r WHERE r.calorie <= ?1 AND r.difficulte = ?2 OR "
+					+ "r.calorie <= ?1 AND r.difficulte = ?3")
+			public Iterable<Recette> findRecetteAvance251(float cal, DifficulteRecette facile, DifficulteRecette diff);
+			
+			
 	
 	
 	

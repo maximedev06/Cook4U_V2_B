@@ -48,7 +48,7 @@ public class Cook4uBApplication implements CommandLineRunner {
 		Recette r2 = new Recette(null,"Hamburger",20,TypeRecette.Plats,DifficulteRecette.Moyenne,4,400,"assets/img/hamburger.png","Une recette de hamburger traditionnelle, à varier selon vos goûts et les saisons !");
 		Recette r3 = new Recette(null,"Moussaka",55,TypeRecette.Plats,DifficulteRecette.Facile,4,300,"assets/img/moussaka.png","a moussaka, délicieuse et réconfortante...");
 		Recette r4 = new Recette(null,"Salade de concombre",10,TypeRecette.Entrees,DifficulteRecette.Facile,4,250,"assets/img/salade.png","une recette de salade de concombre");
-		Recette r5 = new Recette(null,"Steak de poulet r",15,TypeRecette.Plats,DifficulteRecette.Difficile,2,150,"assets/img/steak_poulet.png","Une recette d'un steak de poulet");
+		Recette r5 = new Recette(null,"Steak de poulet",15,TypeRecette.Plats,DifficulteRecette.Difficile,2,150,"assets/img/steak_poulet.png","Une recette d'un steak de poulet");
 		Recette r6 = new Recette(null,"Cookies",40,TypeRecette.Desserts, DifficulteRecette.Facile,4,260,"assets/img/cookies.png","Une recette de cookie extra pépite de chocolat");
 		Recette r7 = new Recette(null,"Sauce Tomate",30,TypeRecette.Sauces, DifficulteRecette.Facile,4,150,"assets/img/sauce_tomate.png","Une recette pour faire sa sauce tomate maison très simplement");
 		Recette r8 = new Recette(null,"Houmous d'avocat",15,TypeRecette.Aperitifs,DifficulteRecette.Moyenne,4,120,"assets/img/houmous.png","Recette de houmous traditionnelle");
@@ -61,11 +61,13 @@ public class Cook4uBApplication implements CommandLineRunner {
 		recetteRepo.save(r3);
 		recetteRepo.save(r4);
 		recetteRepo.save(r5);
+		
 		recetteRepo.save(r6);
 		recetteRepo.save(r7);
 		recetteRepo.save(r8);
 		recetteRepo.save(r9);
 		recetteRepo.save(r10);
+		
 			
 		
 		

@@ -353,6 +353,17 @@ public class RecetteRest {
 			}	
 		}
 		
+		//cal Diff
+		@GetMapping(value = "recette/avance25/{cal}/{diff}")
+		public Iterable<Recette> findRecetteAvance25 (@PathVariable float cal, @PathVariable DifficulteRecette diff){
+			if(diff == DifficulteRecette.Facile) {
+				return recetteRepo.findRecetteAvance25(cal,diff);
+			} else if(diff == DifficulteRecette.Moyenne){
+				return recetteRepo.findRecetteAvance251(cal,DifficulteRecette.Facile,diff);
+			} else {
+				return recetteRepo.findByCalMax(cal);
+			}	
+		}
 		
 		
 		//Recherche en fonction de son nom (contient)
